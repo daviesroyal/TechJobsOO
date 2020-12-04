@@ -33,6 +33,5 @@ namespace TechJobsOO
         {
             return Value;
         }
-        // TODO: Add custom Equals(), GetHashCode(), and ToString() methods.
     }
 }
