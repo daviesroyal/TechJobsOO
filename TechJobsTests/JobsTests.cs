@@ -14,8 +14,7 @@ namespace JobsTests
             Job test_job_1 = new Job();
             Job test_job_2 = new Job();
             Assert.IsFalse(test_job_1.Id == test_job_2.Id);
-            Assert.AreEqual(1, test_job_1.Id);
-            Assert.AreEqual(2, test_job_2.Id);
+            Assert.AreEqual(test_job_1.Id, (test_job_2.Id - 1));
         }
 
         [TestMethod]
@@ -50,7 +49,7 @@ namespace JobsTests
         public void TestToStringForAllProperties()
         {
             Job test_job_2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-            string expectedResult = "\nID: 1\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n";
+            string expectedResult = $"\nID: {test_job_2.Id}\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence\n";
             Assert.AreEqual(expectedResult, test_job_2.ToString());
         }
 
@@ -58,7 +57,7 @@ namespace JobsTests
         public void TestToStringForEmptyField()
         {
             Job test_job_3 = new Job("Product tester", new Employer("ACME"), new Location(""), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-            string expectedResult = "\nID: 1\nName: Product tester\nEmployer: ACME\nLocation: Data not available\nPosition Type: Quality control\nCore Competency: Persistence\n";
+            string expectedResult = $"\nID: {test_job_3.Id}\nName: Product tester\nEmployer: ACME\nLocation: Data not available\nPosition Type: Quality control\nCore Competency: Persistence\n";
             Assert.AreEqual(expectedResult, test_job_3.ToString());
         }
 
