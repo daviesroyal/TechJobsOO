@@ -50,7 +50,7 @@ namespace TechJobsOO
             {
                 Console.WriteLine(property);
                 var value = property.GetValue(this);
-                if (String.IsNullOrWhiteSpace(value.ToString()))
+                if (string.IsNullOrWhiteSpace(value.ToString()))
                 {
                     jobInfo += $"{propertyTitles[i]}: Data not available\n";
                 } else
