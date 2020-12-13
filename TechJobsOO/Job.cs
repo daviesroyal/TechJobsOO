@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Reflection;
+using System.Collections.Generic;
 namespace TechJobsOO
 {
     public class Job
@@ -36,6 +38,28 @@ namespace TechJobsOO
         public override int GetHashCode()
         {
             return HashCode.Combine(Id);
+        }
+
+        public override string ToString()
+        {
+            string jobInfo = "\n";
+            PropertyInfo[] properties = typeof(Job).GetProperties();
+            string[] propertyTitles = { "ID", "Name", "Employer", "Location", "Position Type", "Core Competency" };
+            int i = 0;
+            foreach (PropertyInfo property in properties)
+            {
+                Console.WriteLine(property);
+                var value = property.GetValue(this);
+                if (String.IsNullOrWhiteSpace(value.ToString()))
+                {
+                    jobInfo += $"{propertyTitles[i]}: Data not available\n";
+                } else
+                {
+                    jobInfo += $"{propertyTitles[i]}: {value}\n";
+                }
+                i++;
+            }
+            return jobInfo;
         }
     }
 }
