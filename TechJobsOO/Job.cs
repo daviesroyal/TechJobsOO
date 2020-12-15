@@ -5,7 +5,7 @@ namespace TechJobsOO
 {
     public class Job
     {
-        public int Id { get; }
+        public int Id;
         private static int nextId = 1;
 
         public string Name { get; set; }
@@ -48,7 +48,6 @@ namespace TechJobsOO
             int i = 0;
             foreach (PropertyInfo property in properties)
             {
-                Console.WriteLine(property);
                 var value = property.GetValue(this);
                 if (string.IsNullOrWhiteSpace(value.ToString()))
                 {

@@ -8,7 +8,7 @@ namespace TechJobsOO
     {
         public int Id { get; set; }
         public static int nextId = 1;
-        public string Value { get; set; }
+        public string Value { get; }
 
         public JobField()
         {
